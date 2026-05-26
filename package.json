@@ -1,0 +1,44 @@
+{
+  "name": "browser-harness",
+  "version": "0.1.0",
+  "description": "Browser Harness: thin CDP control for real Chrome, exposed as a pi extension.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "browser-harness",
+    "browser",
+    "cdp",
+    "automation"
+  ],
+  "pi": {
+    "extensions": [
+      "./pi-extension/src/index.ts"
+    ],
+    "skills": [
+      "./SKILL.md",
+      "./install.md",
+      "./skills"
+    ]
+  },
+  "scripts": {
+    "check": "tsc --noEmit -p pi-extension/tsconfig.json"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.34.41"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@types/node": "^25.0.0",
+    "typescript": "^5.8.0"
+  }
+}

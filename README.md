@@ -65,6 +65,63 @@ PRs and improvements welcome. The best way to help: **contribute a new domain sk
 
 If you're not sure where to start, open an issue and we'll point you somewhere useful.
 
+## Pi extension
+
+This repository is also a pi package. It exposes browser-harness as pi-native tools while keeping the harness itself as the thin Python/CDP runtime.
+
+Local development:
+
+```bash
+npm install
+npm run check
+pi -e .
+```
+
+Install from a checkout or git source:
+
+```bash
+pi install /absolute/path/to/browser-harness
+# or
+pi install git:github.com/browser-use/browser-harness
+```
+
+The extension expects the `browser-harness` command to be on PATH. For editable local use:
+
+```bash
+uv tool install -e .
+```
+
+Main tools:
+
+- `browser_harness` — run arbitrary browser-harness Python with helpers pre-imported
+- `browser_harness_doctor` — run `browser-harness --doctor`
+- `browser_harness_page_info`
+- `browser_harness_new_tab`
+- `browser_harness_screenshot`
+- `browser_harness_click_xy`
+- `browser_harness_type_text`
+- `browser_harness_press_key`
+- `browser_harness_js`
+- `browser_harness_wait_for_load`
+- `browser_harness_wait_for_element`
+- `browser_harness_tabs`
+
+Commands:
+
+- `/browser`
+- `/browser-doctor`
+- `/browser-open <url>`
+- `/browser-reload`
+
+Useful flags:
+
+- `--browser-harness-command`
+- `--browser-harness-timeout`
+- `--browser-harness-output-dir`
+- `--browser-harness-bu-name`
+- `--browser-harness-autospawn`
+- `--browser-harness-debug-clicks`
+
 ## Domain skills
 
 Set `BH_DOMAIN_SKILLS=1` to enable [agent-workspace/domain-skills/](agent-workspace/domain-skills/) — community-contributed per-site playbooks `goto_url` surfaces by domain. Contribute via PR.
