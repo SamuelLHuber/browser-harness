@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 — 2026-10-03
+
+- Declare host-provided TypeBox as a wildcard peer, not a runtime dependency.
+- Pin the development copy and add actual Pi resource-loader package-warning tests.
+- Keep the private-data working copy out of release ancestry.
+
 ## 0.1.1 — 2026-10-03
 
 - Check against the real Pi 1.0.0 extension API.
