@@ -136,7 +136,7 @@ export default function browserHarnessExtension(pi: ExtensionAPI) {
     ctx.ui.setStatus("browser-harness", "Browser Harness: idle");
   });
 
-  pi.registerCommand("browser", {
+  pi.registerCommand("browser-harness", {
     description: "Refresh and show browser-harness connection status for the current real-browser tab",
     handler: async (_args, ctx) => {
       await updateStatus(pi, ctx);
@@ -144,7 +144,7 @@ export default function browserHarnessExtension(pi: ExtensionAPI) {
     },
   });
 
-  pi.registerCommand("browser-doctor", {
+  pi.registerCommand("browser-harness-doctor", {
     description: "Run browser-harness --doctor to diagnose install, daemon, Chrome remote-debugging, and cloud setup",
     handler: async (_args, ctx) => {
       const doctor = await runCommand(getCommand(pi), ["--doctor"], {
@@ -156,12 +156,12 @@ export default function browserHarnessExtension(pi: ExtensionAPI) {
     },
   });
 
-  pi.registerCommand("browser-open", {
-    description: "Open a URL in a new real-browser tab: /browser-open <url>",
+  pi.registerCommand("browser-harness-open", {
+    description: "Open a URL in a new real-browser tab: /browser-harness-open <url>",
     handler: async (args, ctx) => {
       const url = args.trim();
       if (!url) {
-        ctx.ui.notify("Usage: /browser-open <url>", "warning");
+        ctx.ui.notify("Usage: /browser-harness-open <url>", "warning");
         return;
       }
       const result = await runPython(pi, ctx, `new_tab(${pythonString(url)})\nwait_for_load()\nimport json\nprint(json.dumps(page_info()))\n`);
@@ -170,7 +170,7 @@ export default function browserHarnessExtension(pi: ExtensionAPI) {
     },
   });
 
-  pi.registerCommand("browser-reload", {
+  pi.registerCommand("browser-harness-reload", {
     description: "Stop the browser-harness daemon so the next tool call reconnects with fresh code and browser state",
     handler: async (_args, ctx) => {
       const result = await runPython(pi, ctx, "restart_daemon()\nprint('daemon stopped — will restart fresh on next call')\n");

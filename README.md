@@ -108,10 +108,12 @@ Main tools:
 
 Commands:
 
-- `/browser`
-- `/browser-doctor`
-- `/browser-open <url>`
-- `/browser-reload`
+- `/browser-harness`
+- `/browser-harness-doctor`
+- `/browser-harness-open <url>`
+- `/browser-harness-reload`
+
+The commands use a package-specific prefix so this real-browser adapter can coexist with the headless Playwright extension.
 
 Useful flags:
 
